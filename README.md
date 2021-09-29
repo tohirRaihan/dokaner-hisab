@@ -1,2 +1,2 @@
-# PHP_template
->This is a starting point PHP template using OOP features
+# Dokan Management System
+>Dokan Management system build with PHP OOP features
