@@ -2,7 +2,6 @@
 
 namespace Database;
 
-use Database\Connection;
 use PDOException;
 
 class Database extends Connection
