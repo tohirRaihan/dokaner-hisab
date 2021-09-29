@@ -9,6 +9,7 @@
     <div class="row">
         <div class="col">
             <h1 class="mt-5 text-center">Public face of your application !!</h1>
+            <?php redirect_to(url_for('dashboard')) ?>
         </div>
     </div>
 </div>

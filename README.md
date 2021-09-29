@@ -1,2 +1,2 @@
-# Dokan Management System
->Dokan Management system build with PHP OOP features
+# Dokaner Hisab System
+>Dokaner Hisab is build with PHP OOP features
