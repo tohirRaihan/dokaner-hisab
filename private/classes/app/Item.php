@@ -6,10 +6,29 @@ use Database\Database;
 
 class Item extends Database
 {
-    public static function getAll()
+    public static function all()
     {
         $sql = "SELECT * FROM `items` WHERE 1";
         return parent::getRows($sql, []);
+    }
+
+    public static function create($name, $price, $unit_name)
+    {
+        $sql = "INSERT INTO `items`(`name`, `price`, `unit_name`) VALUES (?, ?, ?)";
+        return parent::insertRow($sql, [$name, $price, $unit_name]);
+
+    }
+
+    public static function update($name, $price, $unit_name, $id)
+    {
+        $sql = "UPDATE `items` SET `name`=?,`price`=? `unit_name`=? WHERE `id`=? LIMIT 1";
+        return parent::updateRow($sql, [$name, $price, $unit_name, $id]);
+    }
+
+    public static function delete($id)
+    {
+        $sql = "DELETE FROM `items` WHERE `id`=? LIMIT 1";
+        return parent::deleteRow($sql, [$id]);
     }
 }
 // Create a new item to instantiate a Connection

@@ -4,7 +4,7 @@ use App\Item;
 
 require_once '../../../private/initialize.php';
 
-$items = Item::getAll();
+$items = Item::all();
 $count = 1;
 
 ?>
