@@ -16,29 +16,11 @@ $scripts = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    <table id="items-table" class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th class="text-center">price /kg</th>
-                <th class="text-center">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Rice</td>
-                <td class="text-center">55</td>
-                <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-xs bg-gradient-warning">Edit</button>
-                        <button class="btn btn-xs bg-gradient-danger">Delete</button>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="all-items">
+        <!-- ____________________________
+            #= All items goes here
+        ____________________________ -->
+    </div>
 </div>
 <!-- /.card-body -->
 
@@ -49,6 +31,11 @@ $custom_script = '
             $("#items-table").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                language: {
+                    searchPlaceholder: "Search...",
+                    sSearch: "",
+                    lengthMenu: "_MENU_ Items/page",
+                }
             })
         });
     </script>

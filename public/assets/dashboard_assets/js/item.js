@@ -1,1 +1,2 @@
-console.log('I am loaded');
+const allItems = document.getElementById('all-items');
+console.log(allItems);
