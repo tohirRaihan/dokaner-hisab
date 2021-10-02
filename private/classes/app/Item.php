@@ -12,3 +12,5 @@ class Item extends Database
         return parent::getRows($sql, []);
     }
 }
+// Create a new item to instantiate a Connection
+$item = new Item;

@@ -16,31 +16,16 @@ $scripts = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    <div id="all-items">
+    <button id="new-item" type="button" class="btn bg-gradient-success btn-sm font-weight-bold">
+        New Item <i class="fa fa-plus-circle ml-2" aria-hidden="true"></i>
+    </button>
+    <div id="all-items" class="mt-3">
         <!-- ____________________________
             #= All items goes here
         ____________________________ -->
     </div>
 </div>
 <!-- /.card-body -->
-
-<?php
-$custom_script = '
-    <script>
-        $(function() {
-            $("#items-table").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-                language: {
-                    searchPlaceholder: "Search...",
-                    sSearch: "",
-                    lengthMenu: "_MENU_ Items/page",
-                }
-            })
-        });
-    </script>
-';
-?>
 
 <!-- #####=START FOOTER=##### -->
 <?php require_once(SHARED_PATH . '/dashboard_footer.php'); ?>
