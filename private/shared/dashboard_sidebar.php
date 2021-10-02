@@ -13,10 +13,18 @@
             <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= url_for('dashboard/index.php') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= url_for('dashboard/items/index.php') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Items
                         </p>
                     </a>
                 </li>
@@ -43,7 +51,7 @@
         <!-- Default box -->
         <div class="card card-gray card-outline mt-5">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title"><?= $page_title ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>

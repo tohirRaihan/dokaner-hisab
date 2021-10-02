@@ -13,7 +13,7 @@ class Connection
     private const DB_SERVER  = 'localhost';
     private const DB_USER    = 'root';
     private const DB_PASS    = '';
-    private const DB_NAME    = 'database_name';
+    private const DB_NAME    = 'dokaner_hisab';
     private const DB_OPTIONS = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
