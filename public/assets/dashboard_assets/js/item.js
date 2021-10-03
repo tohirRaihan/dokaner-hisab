@@ -23,3 +23,30 @@ const getAllItems = async () => {
     });
 };
 getAllItems();
+
+const addNewItem = () => {
+    const jsObject = {
+        name: 'Tohir',
+         age:30
+    };
+    const jsonData = JSON.stringify(jsObject);
+    console.log(jsonData);
+    fetch('../../data/items/create_item.php', {
+        method: 'POST',
+        // mode: 'cors',
+        headers: {
+            'Content-type': 'application/json', // sent request
+            // 'Content-type': 'application/x-www-form-urlencoded', // sent request
+            // 'Accept': 'application/json' // expected data sent back
+        },
+        // body: 'testing'
+        body: "email=test@example.com&password=pw"
+    })
+        .then((res) => res.text())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+
+};
+document.getElementById('new-item').addEventListener('click', () => {
+    addNewItem();
+})

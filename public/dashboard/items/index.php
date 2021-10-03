@@ -16,7 +16,7 @@ $scripts = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    <button id="new-item" type="button" class="btn bg-gradient-success btn-sm font-weight-bold">
+    <button id="new-item" type="button" class="btn bg-gradient-success btn-sm font-weight-bold" data-toggle="modal" data-target="#modal-default">
         New Item <i class="fa fa-plus-circle ml-2" aria-hidden="true"></i>
     </button>
     <div id="all-items" class="mt-3">
@@ -26,6 +26,10 @@ $scripts = [
     </div>
 </div>
 <!-- /.card-body -->
+
+<!-- ########## START: MODALS ########## -->
+<?php include_once PRIVATE_PATH . '/modals/items/create_item.php' ?>
+<!-- ########## END: MODALS ########## -->
 
 <!-- #####=START FOOTER=##### -->
 <?php require_once(SHARED_PATH . '/dashboard_footer.php'); ?>
