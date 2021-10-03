@@ -20,6 +20,8 @@
 <!-- Data table -->
 <script src="<?= url_for('assets/dashboard_assets/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= url_for('assets/dashboard_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+<!-- Sweet alert 2 -->
+<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- AdminLTE App -->
 <script src="<?= url_for('assets/dashboard_assets/js/adminlte.min.js') ?>"></script>
 <!-- File specific Scripts -->

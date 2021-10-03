@@ -25,36 +25,43 @@ const getAllItems = async () => {
 getAllItems();
 
 // add new item -----------------------------------------------------------
-const addNewItem = data => {
-
+const addNewItem = (data) => {
     fetch('../../data/items/create_item.php', {
         method: 'POST',
         body: data,
         headers: {
-            'Content-type': 'application/json', // sent request
+            'Content-type': 'application/json' // sent request
         }
     })
         .then((res) => res.json())
         .then((data) => {
             if (data.status === 'success') {
                 getAllItems();
-                alert('Item added successfully!!');
+                // alert('Item added successfully!!');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Item has beed added successfully'
+                });
                 $('#add-new-item').modal('hide');
             }
         })
-        .catch((error) => console.log(error));
-
+        .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };
 
-document.querySelector('#add-new-item form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const itemName = document.getElementById('item-name').value;
-    const itemPrice = document.getElementById('item-price').value;
-    const itemUnitName = document.getElementById('item-unit-name').value;
-    const data = {
-        'name': itemName,
-        'price': itemPrice,
-        'unitName': itemUnitName
-    }
-    addNewItem(JSON.stringify(data));
-})
+document
+    .querySelector('#add-new-item form')
+    .addEventListener('submit', (event) => {
+        event.preventDefault();
+        const itemName = document.getElementById('item-name');
+        const itemPrice = document.getElementById('item-price');
+        const itemUnitName = document.getElementById('item-unit-name');
+        const data = {
+            name: itemName.value,
+            price: itemPrice.value,
+            unitName: itemUnitName.value
+        };
+        itemName.value = '';
+        itemPrice.value = '';
+        itemUnitName.value = '';
+        addNewItem(JSON.stringify(data));
+    });
