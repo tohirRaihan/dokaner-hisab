@@ -24,29 +24,37 @@ const getAllItems = async () => {
 };
 getAllItems();
 
-const addNewItem = () => {
-    const jsObject = {
-        name: 'Tohir',
-         age:30
-    };
-    const jsonData = JSON.stringify(jsObject);
-    console.log(jsonData);
+// add new item -----------------------------------------------------------
+const addNewItem = data => {
+
     fetch('../../data/items/create_item.php', {
         method: 'POST',
-        // mode: 'cors',
+        body: data,
         headers: {
             'Content-type': 'application/json', // sent request
-            // 'Content-type': 'application/x-www-form-urlencoded', // sent request
-            // 'Accept': 'application/json' // expected data sent back
-        },
-        // body: 'testing'
-        body: "email=test@example.com&password=pw"
+        }
     })
-        .then((res) => res.text())
-        .then((data) => console.log(data))
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.status === 'success') {
+                getAllItems();
+                alert('Item added successfully!!');
+                $('#add-new-item').modal('hide');
+            }
+        })
         .catch((error) => console.log(error));
 
 };
-document.getElementById('new-item').addEventListener('click', () => {
-    addNewItem();
+
+document.querySelector('#add-new-item form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const itemName = document.getElementById('item-name').value;
+    const itemPrice = document.getElementById('item-price').value;
+    const itemUnitName = document.getElementById('item-unit-name').value;
+    const data = {
+        'name': itemName,
+        'price': itemPrice,
+        'unitName': itemUnitName
+    }
+    addNewItem(JSON.stringify(data));
 })

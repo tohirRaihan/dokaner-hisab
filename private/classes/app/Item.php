@@ -8,7 +8,7 @@ class Item extends Database
 {
     public static function all()
     {
-        $sql = "SELECT * FROM `items` WHERE 1";
+        $sql = "SELECT * FROM `items` ORDER BY `id` DESC";
         return parent::getRows($sql, []);
     }
 
