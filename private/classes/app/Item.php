@@ -12,6 +12,12 @@ class Item extends Database
         return parent::getRows($sql, []);
     }
 
+    public static function find($id)
+    {
+        $sql = "SELECT * FROM `items` WHERE `id`=?";
+        return parent::getRows($sql, [$id]);
+    }
+
     public static function create($name, $price, $unit_name)
     {
         $sql = "INSERT INTO `items`(`name`, `price`, `unit_name`) VALUES (?, ?, ?)";

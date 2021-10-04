@@ -32,7 +32,9 @@ $count = 1;
                         class="btn btn-xs bg-gradient-warning"
                         data-toggle="modal"
                         data-target="#edit-item"
-                        data-id="<?=$item['id']?>">
+                        data-id="<?=$item['id']?>"
+                        onclick="getItem(event)">
+
                             Edit
                         </button>
                         <button class="btn btn-xs bg-gradient-danger">

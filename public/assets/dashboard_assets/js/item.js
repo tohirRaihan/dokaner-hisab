@@ -48,6 +48,12 @@ const addNewItem = (data) => {
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };
 
+const getItem = (event) => {
+    console.log(event.target.dataset.id);
+    fetch('../../data/items/find_item.php')
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+};
 // Events
 document
     .querySelector('#add-new-item form')
