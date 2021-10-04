@@ -48,6 +48,7 @@ const addNewItem = (data) => {
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };
 
+// Events
 document
     .querySelector('#add-new-item form')
     .addEventListener('submit', (event) => {
@@ -60,8 +61,8 @@ document
             price: itemPrice.value,
             unitName: itemUnitName.value
         };
+        addNewItem(JSON.stringify(data));
         itemName.value = '';
         itemPrice.value = '';
         itemUnitName.value = '';
-        addNewItem(JSON.stringify(data));
     });

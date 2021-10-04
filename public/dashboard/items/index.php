@@ -29,6 +29,7 @@ $scripts = [
 
 <!-- ########## START: MODALS ########## -->
 <?php include_once PRIVATE_PATH . '/modals/items/create_item.php' ?>
+<?php include_once PRIVATE_PATH . '/modals/items/edit_item.php' ?>
 <!-- ########## END: MODALS ########## -->
 
 <!-- #####=START FOOTER=##### -->

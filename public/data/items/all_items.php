@@ -18,18 +18,29 @@ $count = 1;
         </tr>
     </thead>
     <tbody>
-        <?php foreach($items as $item): ?>
+        <?php foreach ($items as $item): ?>
             <tr>
-                <td><?= $count++ ?></td>
-                <td><?= $item['name'] ?></td>
-                <td class="text-center"><span class="h5">&#2547;</span> <?= $item['price'] ?><span class="text-muted"> / <?= $item['unit_name'] ?></span></td>
+                <td><?=$count++?></td>
+                <td><?=$item['name']?></td>
+                <td class="text-center">
+                    <span class="h5">&#2547;</span> <?=$item['price']?>
+                    <span class="text-muted"> / <?=$item['unit_name']?></span>
+                </td>
                 <td class="text-center">
                     <div class="btn-group" role="group">
-                        <button class="btn btn-xs bg-gradient-warning">Edit</button>
-                        <button class="btn btn-xs bg-gradient-danger">Delete</button>
+                        <button
+                        class="btn btn-xs bg-gradient-warning"
+                        data-toggle="modal"
+                        data-target="#edit-item"
+                        data-id="<?=$item['id']?>">
+                            Edit
+                        </button>
+                        <button class="btn btn-xs bg-gradient-danger">
+                            Delete
+                        </button>
                     </div>
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach;?>
     </tbody>
 </table>
