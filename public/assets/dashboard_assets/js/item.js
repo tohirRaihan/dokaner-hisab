@@ -66,6 +66,7 @@ const editItem = (id) => {
             event.preventDefault();
             // data in json format
             let data = {
+                id: id,
                 name: document.querySelector('#edit-item #item-name').value,
                 price: document.querySelector('#edit-item #item-price').value,
                 unitName: document.querySelector('#edit-item #item-unit-name')
@@ -81,7 +82,20 @@ const editItem = (id) => {
                 }
             })
                 .then((res) => res.json())
-                .then((data) => console.log(data));
+                .then((data) => {
+                    if (data.status === 'success') {
+                        getAllItems();
+                        // alert('Item edited successfully!!');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Item has beed edited successfully'
+                        });
+                        $('#edit-item').modal('hide');
+                    }
+                })
+                .catch((error) =>
+                    Swal.fire('Something went wrong', '', 'warning')
+                );
         });
 };
 

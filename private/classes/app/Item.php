@@ -27,7 +27,7 @@ class Item extends Database
 
     public static function update($name, $price, $unit_name, $id)
     {
-        $sql = "UPDATE `items` SET `name`=?,`price`=? `unit_name`=? WHERE `id`=? LIMIT 1";
+        $sql = "UPDATE `items` SET `name`=?,`price`=?,`unit_name`=? WHERE `id`=? LIMIT 1";
         return parent::updateRow($sql, [$name, $price, $unit_name, $id]);
     }
 
