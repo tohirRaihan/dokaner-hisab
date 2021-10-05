@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="item-name">Name</label>
-                        <input type="text" name="item_name" class="form-control" id="item-name" placeholder="Item name">
+                        <input type="text" name="item_name" class="form-control" id="item-name" placeholder="Item name" value="test">
                     </div>
                     <div class="form-group">
                         <label for="item-price">Price</label>

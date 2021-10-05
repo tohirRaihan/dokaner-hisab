@@ -1,8 +1,8 @@
 <?php
 
-use App\Item;
-
 require_once '../../../private/initialize.php';
+
+use App\Item;
 
 $items = Item::all();
 $count = 1;
@@ -32,8 +32,7 @@ $count = 1;
                         class="btn btn-xs bg-gradient-warning"
                         data-toggle="modal"
                         data-target="#edit-item"
-                        data-id="<?=$item['id']?>"
-                        onclick="getItem(event)">
+                        onclick="editItem(<?=$item['id']?>)">
 
                             Edit
                         </button>
