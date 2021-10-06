@@ -18,6 +18,19 @@ const getAllItems = async () => {
 };
 getAllItems();
 
+// find item by id ------------------------------------------------------
+const findItem = (id) => {
+    fetch(`../../data/items/find_item.php?id=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            const { name, price, unit_name } = data[0];
+            document.querySelector('#edit-item #item-name').value = name;
+            document.querySelector('#edit-item #item-price').value = price;
+            document.querySelector('#edit-item #item-unit-name').value =
+                unit_name;
+        });
+};
+
 // add new item -----------------------------------------------------------
 const addNewItem = (data) => {
     fetch('../../data/items/create_item.php', {
@@ -40,19 +53,6 @@ const addNewItem = (data) => {
             }
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
-};
-
-// find item with id ------------------------------------------------------
-const findItem = (id) => {
-    fetch(`../../data/items/find_item.php?id=${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            const { name, price, unit_name } = data[0];
-            document.querySelector('#edit-item #item-name').value = name;
-            document.querySelector('#edit-item #item-price').value = price;
-            document.querySelector('#edit-item #item-unit-name').value =
-                unit_name;
-        });
 };
 
 // edit item --------------------------------------------------------------
@@ -99,7 +99,43 @@ const editItem = (id) => {
         });
 };
 
-// Events
+// delete item ------------------------------------------------------------
+const deleteItem = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonColor: '#28a745',
+        confirmButtonColor: '#dc3545',
+        confirmButtonText: 'Yes, delete it!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`../../data/items/delete_item.php?id=${id}`, {
+                method: 'DELETE'
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.status === 'success') {
+                        getAllItems();
+                        // alert('Item edited successfully!!');
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Your item has been deleted.',
+                            icon: 'success',
+                            confirmButtonColor: '#28a745'
+                        });
+                    }
+                })
+                .catch((error) =>
+                    Swal.fire('Something went wrong', '', 'warning')
+                );
+        }
+    });
+};
+
+// Event for add new item
 document
     .querySelector('#add-new-item form')
     .addEventListener('submit', (event) => {

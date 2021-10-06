@@ -36,7 +36,8 @@ $count = 1;
 
                             Edit
                         </button>
-                        <button class="btn btn-xs bg-gradient-danger">
+                        <button class="btn btn-xs bg-gradient-danger"
+                        onclick="deleteItem(<?=$item['id']?>)">
                             Delete
                         </button>
                     </div>

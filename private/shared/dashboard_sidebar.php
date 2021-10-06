@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/items/index.php') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fa fa-list-ul"></i>
                         <p>
                             Items
                         </p>
