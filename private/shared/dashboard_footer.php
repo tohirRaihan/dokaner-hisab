@@ -22,6 +22,8 @@
 <script src="<?= url_for('assets/dashboard_assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
 <!-- Sweet alert 2 -->
 <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= url_for('assets/dashboard_assets/js/adminlte.min.js') ?>"></script>
 <!-- File specific Scripts -->

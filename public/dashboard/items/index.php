@@ -16,7 +16,7 @@ $scripts = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    <button id="new-item" type="button" class="btn bg-gradient-success btn-sm font-weight-bold" data-toggle="modal" data-target="#add-new-item">
+    <button id="new-item" type="button" class="btn bg-gradient-success btn-sm" data-toggle="modal" data-target="#add-new-item">
         New Item <i class="fa fa-plus-circle ml-2" aria-hidden="true"></i>
     </button>
     <div id="all-items" class="mt-3">
