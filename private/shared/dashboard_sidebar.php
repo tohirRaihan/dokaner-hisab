@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/items/index.php') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-list-ul"></i>
+                        <i class="nav-icon fa fa-server"></i>
                         <p>
                             Items
                         </p>
@@ -30,7 +30,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/orders/index.php') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-list-ul"></i>
+                        <i class="nav-icon fa fa-gift"></i>
                         <p>
                             Orders
                         </p>

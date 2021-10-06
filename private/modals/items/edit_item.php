@@ -27,7 +27,7 @@
 
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn bg-gradient-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn bg-gradient-primary">Add New</button>
+                    <button type="submit" class="btn bg-gradient-primary">Edit</button>
                 </div>
             </form>
         </div>
