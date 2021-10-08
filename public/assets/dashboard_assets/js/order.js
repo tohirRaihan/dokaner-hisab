@@ -112,15 +112,14 @@ const claimOrder = () => {
         Swal.fire('Ops!', 'Please select order before claim it', 'error');
         return;
     }
-    // confirmation of delete
+    // confirmation of order claiming
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
+        title: 'Did you claim the orders?',
+        icon: 'question',
         showCancelButton: true,
-        cancelButtonColor: '#28a745',
-        confirmButtonColor: '#dc3545',
-        confirmButtonText: 'Yes, delete it!',
+        cancelButtonColor: '#dc3545',
+        confirmButtonColor: '#28a745',
+        confirmButtonText: 'Yes, claimed it!',
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
