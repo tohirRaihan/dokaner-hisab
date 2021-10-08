@@ -15,7 +15,7 @@ class Item extends Database
     public static function find($id)
     {
         $sql = "SELECT * FROM `items` WHERE `id`=?";
-        return parent::getRows($sql, [$id]);
+        return parent::getRow($sql, [$id]);
     }
 
     public static function create($name, $price, $unit_name)

@@ -29,7 +29,7 @@ const addItemField = async () => {
         .then((data) => {
             div.innerHTML = `
                 <div class="col-8">
-                    <select class="select-item form-control" name="item_name[]">
+                    <select class="select-item form-control item-name" name="item_name[]">
                         <option disabled selected>Select an item</option>
                         ${data.map(
                             (single) =>
@@ -39,7 +39,7 @@ const addItemField = async () => {
                 </div>
                 <div class="col-4">
                     <div class="input-group">
-                        <input type="text" name="item_quantity[]" class="form-control" placeholder="Quantity">
+                        <input type="text" name="item_quantity[]" class="form-control item-quantity" placeholder="Quantity">
                         <button type="button" onclick="removeItem(event)" class="btn btn-danger rounded-0"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
@@ -54,11 +54,50 @@ const addItemField = async () => {
 
 // remove item field from ordered items -----------------------------------
 const removeItem = (event) => {
-    let element;
-    if (event.target.childNodes.length) {
-        element = event.target.parentNode.parentNode.parentNode;
-    } else {
-        element = event.target.parentNode.parentNode.parentNode.parentNode;
-    }
+    const element = event.target.closest('.form-row');
     element.parentNode.removeChild(element);
+};
+
+// place a new order ------------------------------------------------------
+const addNewOrder = (event) => {
+    event.preventDefault();
+    const customerName = document.getElementById('customer-name');
+    const itemNames = document.querySelectorAll('.item-name');
+    const itemQuantitys = document.querySelectorAll('.item-quantity');
+
+    // loop through to get all ordered items as an array of object
+    const orderedItems = [];
+    for (let i = 0; i < itemNames.length; i++) {
+        orderedItems[i] = {
+            itemId: itemNames[i].value,
+            itemQuantity: itemQuantitys[i].value,
+        };
+    }
+    // making an object of all necessary data for the fetch method
+    const data = {
+        customerName: customerName.value,
+        orderedItems: orderedItems
+    };
+
+    // the fetch method to make the ajax call and insert data into database
+    fetch('../../data/orders/create_order.php', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json' // sent request
+        }
+    })
+        .then((res) => res.text())
+        .then((data) => {
+            console.log(data);
+            if (data.status === 'success') {
+                getAllOrders();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Item has beed added successfully'
+                });
+                $('#new-order').modal('hide');
+            }
+        })
+        .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };

@@ -8,7 +8,7 @@
                 </button>
             </div>
 
-            <form>
+            <form onsubmit="addNewOrder(event)">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="customer-name">Customer Name</label>

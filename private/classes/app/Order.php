@@ -15,13 +15,13 @@ class Order extends Database
     public static function find($id)
     {
         $sql = "SELECT * FROM `orders` WHERE `id`=?";
-        return parent::getRows($sql, [$id]);
+        return parent::getRow($sql, [$id]);
     }
 
-    public static function create($name, $price, $unit_name)
+    public static function create($customer_name, $ordered_items, $ordered_amount)
     {
-        $sql = "INSERT INTO `orders`(`name`, `price`, `unit_name`) VALUES (?, ?, ?)";
-        return parent::insertRow($sql, [$name, $price, $unit_name]);
+        $sql = "INSERT INTO `orders`(`customer_name`, `ordered_items`, `ordered_amount`) VALUES (?,?,?)";
+        return parent::insertRow($sql, [$customer_name, $ordered_items, $ordered_amount]);
 
     }
 
