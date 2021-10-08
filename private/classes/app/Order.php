@@ -6,10 +6,10 @@ use Database\Database;
 
 class Order extends Database
 {
-    public static function all()
+    public static function all($payment_claimed = 0)
     {
-        $sql = "SELECT * FROM `orders` ORDER BY `id` DESC";
-        return parent::getRows($sql, []);
+        $sql = "SELECT * FROM `orders` WHERE `payment_claimed`=? ORDER BY `id` DESC";
+        return parent::getRows($sql, [$payment_claimed]);
     }
 
     public static function find($id)
@@ -22,7 +22,6 @@ class Order extends Database
     {
         $sql = "INSERT INTO `orders`(`customer_name`, `ordered_items`, `ordered_amount`) VALUES (?,?,?)";
         return parent::insertRow($sql, [$customer_name, $ordered_items, $ordered_amount]);
-
     }
 
     public static function update($name, $price, $unit_name, $id)
