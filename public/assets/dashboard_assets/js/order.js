@@ -1,4 +1,4 @@
-// get all orders ----------------------------------------------------------
+// get all orders ---------------------------------------------------------
 const getAllOrders = async () => {
     await fetch('../../data/orders/all_orders.php')
         .then((res) => res.text())
@@ -70,7 +70,7 @@ const addNewOrder = (event) => {
     for (let i = 0; i < itemNames.length; i++) {
         orderedItems[i] = {
             itemId: itemNames[i].value,
-            itemQuantity: itemQuantitys[i].value,
+            itemQuantity: itemQuantitys[i].value
         };
     }
     // making an object of all necessary data for the fetch method
@@ -87,10 +87,12 @@ const addNewOrder = (event) => {
             'Content-type': 'application/json' // sent request
         }
     })
-        .then((res) => res.text())
+        .then((res) => res.json())
         .then((data) => {
             console.log(data);
             if (data.status === 'success') {
+                document.getElementById('order-items').textContent = '';
+                customerName.value = '';
                 getAllOrders();
                 Swal.fire({
                     icon: 'success',
