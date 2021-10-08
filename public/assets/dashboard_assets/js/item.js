@@ -119,7 +119,6 @@ const deleteItem = (id) => {
                 .then((data) => {
                     if (data.status === 'success') {
                         getAllItems();
-                        // alert('Item edited successfully!!');
                         Swal.fire({
                             title: 'Deleted!',
                             text: 'Your item has been deleted.',

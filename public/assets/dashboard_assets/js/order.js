@@ -89,7 +89,6 @@ const addNewOrder = (event) => {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             if (data.status === 'success') {
                 document.getElementById('order-items').textContent = '';
                 customerName.value = '';
@@ -102,4 +101,104 @@ const addNewOrder = (event) => {
             }
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
+};
+
+// claim order with checkbox
+const claimOrder = () => {
+    const checkedBoxes = document.querySelectorAll(
+        'input[type=checkbox]:checked'
+    );
+    if (!checkedBoxes.length) {
+        Swal.fire('Ops!', 'Please select order before claim it', 'error');
+        return;
+    }
+    // confirmation of delete
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonColor: '#28a745',
+        confirmButtonColor: '#dc3545',
+        confirmButtonText: 'Yes, delete it!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // main delete operation goes here
+            checkedBoxes.forEach((checkedBox) => {
+                fetch(
+                    `../../data/orders/claim_order.php?id=${checkedBox.value}`,
+                    {
+                        method: 'GET'
+                    }
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.status === 'success') {
+                            getAllOrders();
+                            Swal.fire({
+                                title: 'Claimed!',
+                                text: 'Your orders has been Claimed.',
+                                icon: 'success',
+                                confirmButtonColor: '#28a745'
+                            });
+                        }
+                    })
+                    .catch((error) =>
+                        Swal.fire('Something went wrong', '', 'warning')
+                    );
+            });
+        }
+    });
+};
+
+// delete order with checkbox ---------------------------------------------
+const deleteOrder = () => {
+    const checkedBoxes = document.querySelectorAll(
+        'input[type=checkbox]:checked'
+    );
+    if (!checkedBoxes.length) {
+        Swal.fire('Ops!', 'Please select order before delete', 'error');
+        return;
+    }
+    // confirmation of delete
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonColor: '#28a745',
+        confirmButtonColor: '#dc3545',
+        confirmButtonText: 'Yes, delete it!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // main delete operation goes here
+            checkedBoxes.forEach((checkedBox) => {
+                fetch(
+                    `../../data/orders/delete_order.php?id=${checkedBox.value}`,
+                    {
+                        method: 'DELETE'
+                    }
+                )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.status === 'success') {
+                            getAllOrders();
+                            Swal.fire({
+                                title: 'Deleted!',
+                                text: 'Your orders has been deleted.',
+                                icon: 'success',
+                                confirmButtonColor: '#28a745'
+                            });
+                        }
+                    })
+                    .catch((error) =>
+                        Swal.fire('Something went wrong', '', 'warning')
+                    );
+            });
+        }
+    });
 };

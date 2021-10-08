@@ -35,6 +35,12 @@ class Order extends Database
         $sql = "DELETE FROM `orders` WHERE `id`=? LIMIT 1";
         return parent::deleteRow($sql, [$id]);
     }
+
+    public static function claim($id)
+    {
+        $sql = "UPDATE `orders` SET `payment_claimed`=1 WHERE `id`=? LIMIT 1";
+        return parent::deleteRow($sql, [$id]);
+    }
 }
 // Create a new item to instantiate a Connection
 $order = new Order;

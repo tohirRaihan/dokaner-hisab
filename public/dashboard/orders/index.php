@@ -25,12 +25,13 @@ $scripts    = [
         New Order <i class="fa fa-plus-circle ml-1" aria-hidden="true"></i>
     </button>
     <button
+        onclick="claimOrder()"
         type="button"
         class="btn bg-gradient-purple btn-sm"
     >
         Claim <i class="fa fa-check-circle ml-1" aria-hidden="true"></i>
     </button>
-    <button type="button" class="btn bg-gradient-danger btn-sm">
+    <button onclick="deleteOrder()" type="button" class="btn bg-gradient-danger btn-sm">
         Delete <i class="fa fa-trash ml-1" aria-hidden="true"></i>
     </button>
     <div id="all-orders" class="mt-3">
