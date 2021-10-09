@@ -20,8 +20,9 @@ getAllOrders();
 
 // add item field in ordered items ----------------------------------------
 const addItemField = async (event) => {
-    const orderItems = event.target.closest('.form-group').querySelector('#order-items');
-    console.log(orderItems);
+    const orderItems = event.target
+        .closest('.form-group')
+        .querySelector('#order-items');
     const div = document.createElement('div');
     div.classList.add('form-row', 'mb-2');
 
@@ -34,7 +35,7 @@ const addItemField = async (event) => {
                         <option disabled selected>Select an item</option>
                         ${data.map(
                             (single) =>
-                                `<option value=${single.id}>${single.name} (&#2547; ${single.price} / ${single.unit_name})</option>`
+                                `<option value="${single.id}">${single.name} (&#2547; ${single.price} / ${single.unit_name})</option>`
                         )}
                     </select>
                 </div>
@@ -63,8 +64,10 @@ const removeItemField = (event) => {
 const addNewOrder = (event) => {
     event.preventDefault();
     const customerName = document.getElementById('customer-name');
-    const itemNames = document.querySelectorAll('.item-name');
-    const itemQuantitys = document.querySelectorAll('.item-quantity');
+    const itemNames = document.querySelectorAll('#new-order .item-name');
+    const itemQuantitys = document.querySelectorAll(
+        '#new-order .item-quantity'
+    );
 
     // loop through to get all ordered items as an array of object
     const orderedItems = [];
@@ -79,7 +82,6 @@ const addNewOrder = (event) => {
         customerName: customerName.value,
         orderedItems: orderedItems
     };
-
     // the fetch method to make the ajax call and insert data into database
     fetch('../../data/orders/create_order.php', {
         method: 'POST',
@@ -113,10 +115,54 @@ const findOrder = (id) => {
             const orderedItems = JSON.parse(data.ordered_items);
             document.querySelector('#edit-order #customer-name').value =
                 customerName;
-            console.log(orderedItems);
-            // orderedItems.map(orderedItem => {
-            //     addItemField();
-            // })
+            // recieving and setting alreaady added items
+            const orderItemsContainer = document.querySelector(
+                '#edit-order #order-items'
+            );
+            orderItemsContainer.textContent = '';
+            console.log(orderItemsContainer);
+            // loopthrough the items
+            orderedItems.forEach(async (orderItem) => {
+                console.log(orderItem);
+                const div = document.createElement('div');
+                div.classList.add('form-row', 'mb-2');
+                await fetch('../../data/orders/all_items.php')
+                    .then((res) => res.json())
+                    .then((data) => {
+                        div.innerHTML = `
+                            <div class="col-8">
+                                <select class="select-item form-control item-name" name="item_name[]">
+                                    <option disabled>Select an item</option>
+                                    ${data.map(
+                                        (single) =>
+                                            `<option ${
+                                                single.id === orderItem.itemId
+                                                    ? 'selected'
+                                                    : ''
+                                            } value=${single.id}>${
+                                                single.name
+                                            } (&#2547; ${single.price} / ${
+                                                single.unit_name
+                                            })</option>`
+                                    )}
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <input type="text" name="item_quantity[]" class="form-control item-quantity" placeholder="Quantity" value=${
+                                        orderItem.itemQuantity
+                                    }>
+                                    <button type="button" onclick="removeItemField(event)" class="btn btn-danger rounded-0"><i class="fa fa-minus"></i></button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                orderItemsContainer.appendChild(div);
+                // initialize select2 plugin
+                $(document).ready(function () {
+                    $('.select-item').select2();
+                });
+            });
         });
 };
 
