@@ -29,10 +29,10 @@ $count  = 1;
                 <td class="text-center"><?= $order['ordered_amount'] ?></td>
                 <td class="text-center">
                     <div class="btn-group" role="group">
-                        <button class="btn btn-xs bg-gradient-primary" onclick="deleteorder(<?= $order['id'] ?>)">
+                        <button class="btn btn-xs bg-gradient-primary" onclick="orderDetails(<?= $order['id'] ?>)">
                             Details
                         </button>
-                        <button class="btn btn-xs bg-gradient-warning" data-toggle="modal" data-target="#edit-order" onclick="editorder(<?= $order['id'] ?>)">
+                        <button class="btn btn-xs bg-gradient-warning" data-toggle="modal" data-target="#edit-order" onclick="editOrder(<?= $order['id'] ?>)">
 
                             Edit
                         </button>

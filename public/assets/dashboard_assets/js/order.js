@@ -40,7 +40,7 @@ const addItemField = async () => {
                 <div class="col-4">
                     <div class="input-group">
                         <input type="text" name="item_quantity[]" class="form-control item-quantity" placeholder="Quantity">
-                        <button type="button" onclick="removeItem(event)" class="btn btn-danger rounded-0"><i class="fa fa-minus"></i></button>
+                        <button type="button" onclick="removeItemField(event)" class="btn btn-danger rounded-0"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
             `;
@@ -53,7 +53,7 @@ const addItemField = async () => {
 };
 
 // remove item field from ordered items -----------------------------------
-const removeItem = (event) => {
+const removeItemField = (event) => {
     const element = event.target.closest('.form-row');
     element.parentNode.removeChild(element);
 };
@@ -101,6 +101,30 @@ const addNewOrder = (event) => {
             }
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
+};
+
+// find order by id
+const findOrder = (id) => {
+    fetch(`../../data/orders/find_order.php?id=${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+            const customerName = data.customer_name;
+            const orderedItems = JSON.parse(data.ordered_items);
+            console.log(customerName);
+            console.log(orderedItems);
+            // const { name, price, unit_name } = data[0];
+            // document.querySelector('#edit-item #item-name').value = name;
+            // document.querySelector('#edit-item #item-price').value = price;
+            // document.querySelector('#edit-item #item-unit-name').value =
+            //     unit_name;
+        });
+};
+
+// edit order
+const editOrder = (id) => {
+    console.log(id);
+    findOrder(id);
+
 };
 
 // claim order with checkbox
