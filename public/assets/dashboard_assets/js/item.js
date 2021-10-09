@@ -23,7 +23,7 @@ const findItem = (id) => {
     fetch(`../../data/items/find_item.php?id=${id}`)
         .then((res) => res.json())
         .then((data) => {
-            const { name, price, unit_name } = data[0];
+            const { name, price, unit_name } = data;
             document.querySelector('#edit-item #item-name').value = name;
             document.querySelector('#edit-item #item-price').value = price;
             document.querySelector('#edit-item #item-unit-name').value =

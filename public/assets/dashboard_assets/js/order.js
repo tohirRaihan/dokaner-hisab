@@ -170,6 +170,58 @@ const findOrder = (id) => {
 const editOrder = (id) => {
     console.log(id);
     findOrder(id);
+    // operation for edit orders
+    $('#edit-order')
+        .off('submit', '**')
+        .on('submit', 'form', function (event) {
+            event.preventDefault();
+            console.log('submit');
+            const customerName = document.querySelector('#edit-order #customer-name');
+            const itemNames = document.querySelectorAll(
+                '#edit-order .item-name'
+            );
+            const itemQuantitys = document.querySelectorAll(
+                '#edit-order .item-quantity'
+            );
+
+            // loop through to get all ordered items as an array of object
+            const orderedItems = [];
+            for (let i = 0; i < itemNames.length; i++) {
+                orderedItems[i] = {
+                    itemId: itemNames[i].value,
+                    itemQuantity: itemQuantitys[i].value
+                };
+            }
+            // making an object of all necessary data for the fetch method
+            const data = {
+                id: id,
+                customerName: customerName.value,
+                orderedItems: orderedItems
+            };
+            console.log(data);
+            // the fetch method to make the ajax call and insert data into database
+            fetch('../../data/orders/update_order.php', {
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-type': 'application/json' // sent request
+                }
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.status === 'success') {
+                        getAllOrders();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Item has beed edited successfully'
+                        });
+                        $('#edit-order').modal('hide');
+                    }
+                })
+                .catch((error) =>
+                    Swal.fire('Something went wrong', '', 'warning')
+                );
+        });
 };
 
 // claim order with checkbox

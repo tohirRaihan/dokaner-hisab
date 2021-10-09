@@ -24,10 +24,10 @@ class Order extends Database
         return parent::insertRow($sql, [$customer_name, $ordered_items, $ordered_amount]);
     }
 
-    public static function update($name, $price, $unit_name, $id)
+    public static function update($customer_name, $ordered_items, $ordered_amount, $id)
     {
-        $sql = "UPDATE `orders` SET `name`=?,`price`=?,`unit_name`=? WHERE `id`=? LIMIT 1";
-        return parent::updateRow($sql, [$name, $price, $unit_name, $id]);
+        $sql = "UPDATE `orders` SET `customer_name`=?, `ordered_items`=?, `ordered_amount`=? WHERE `id`=? LIMIT 1";
+        return parent::updateRow($sql, [$customer_name, $ordered_items, $ordered_amount, $id]);
     }
 
     public static function delete($id)
