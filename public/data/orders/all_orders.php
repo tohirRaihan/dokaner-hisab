@@ -26,10 +26,10 @@ $count  = 1;
                 <td><?= $count++ ?></td>
                 <td><?= $order['customer_name'] ?></td>
                 <td class="text-center"><?= $order['created_at'] ?></td>
-                <td class="text-center"><?= $order['ordered_amount'] ?></td>
+                <td class="text-center"><span class="h5">&#2547;</span> <?= $order['ordered_amount'] ?></td>
                 <td class="text-center">
                     <div class="btn-group" role="group">
-                        <button class="btn btn-xs bg-gradient-primary" onclick="orderDetails(<?= $order['id'] ?>)">
+                        <button class="btn btn-xs bg-gradient-primary" data-toggle="modal" data-target="#order-details" onclick="orderDetails(<?= $order['id'] ?>)">
                             Details
                         </button>
                         <button class="btn btn-xs bg-gradient-warning" data-toggle="modal" data-target="#edit-order" onclick="editOrder(<?= $order['id'] ?>)">

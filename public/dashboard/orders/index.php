@@ -45,6 +45,7 @@ $scripts    = [
 <!-- ########## START: MODALS ########## -->
 <?php include_once PRIVATE_PATH . '/modals/orders/create_order.php'?>
 <?php include_once PRIVATE_PATH . '/modals/orders/edit_order.php'?>
+<?php include_once PRIVATE_PATH . '/modals/orders/order_details.php'?>
 <!-- ########## END: MODALS ########## -->
 
 <!-- #####=START FOOTER=##### -->

@@ -176,7 +176,9 @@ const editOrder = (id) => {
         .on('submit', 'form', function (event) {
             event.preventDefault();
             console.log('submit');
-            const customerName = document.querySelector('#edit-order #customer-name');
+            const customerName = document.querySelector(
+                '#edit-order #customer-name'
+            );
             const itemNames = document.querySelectorAll(
                 '#edit-order .item-name'
             );
@@ -271,6 +273,20 @@ const claimOrder = () => {
             });
         }
     });
+};
+
+// order details ----------------------------------------------------------
+const orderDetails = (id) => {
+    const orderDetails = document.querySelector('#order-details .modal-body');
+    console.log(orderDetails);
+    fetch(`../../data/orders/order_details.php?id=${id}`, {
+        method: 'GET'
+    })
+        .then((res) => res.text())
+        .then((data) => {
+            orderDetails.innerHTML = data;
+        })
+        .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };
 
 // delete order with checkbox ---------------------------------------------
