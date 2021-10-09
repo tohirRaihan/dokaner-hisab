@@ -19,8 +19,9 @@ const getAllOrders = async () => {
 getAllOrders();
 
 // add item field in ordered items ----------------------------------------
-const addItemField = async () => {
-    const orderItems = document.getElementById('order-items');
+const addItemField = async (event) => {
+    const orderItems = event.target.closest('.form-group').querySelector('#order-items');
+    console.log(orderItems);
     const div = document.createElement('div');
     div.classList.add('form-row', 'mb-2');
 
@@ -110,13 +111,12 @@ const findOrder = (id) => {
         .then((data) => {
             const customerName = data.customer_name;
             const orderedItems = JSON.parse(data.ordered_items);
-            console.log(customerName);
+            document.querySelector('#edit-order #customer-name').value =
+                customerName;
             console.log(orderedItems);
-            // const { name, price, unit_name } = data[0];
-            // document.querySelector('#edit-item #item-name').value = name;
-            // document.querySelector('#edit-item #item-price').value = price;
-            // document.querySelector('#edit-item #item-unit-name').value =
-            //     unit_name;
+            // orderedItems.map(orderedItem => {
+            //     addItemField();
+            // })
         });
 };
 
@@ -124,7 +124,6 @@ const findOrder = (id) => {
 const editOrder = (id) => {
     console.log(id);
     findOrder(id);
-
 };
 
 // claim order with checkbox

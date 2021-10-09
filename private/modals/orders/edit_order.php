@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label>
                             Order Items
-                            <button type="button" class="btn btn-sm btn-success ml-1" onclick="addItemField()">
+                            <button type="button" class="btn btn-sm btn-success ml-1" onclick="addItemField(event)">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </label>
