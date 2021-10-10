@@ -120,10 +120,8 @@ const findOrder = (id) => {
                 '#edit-order #order-items'
             );
             orderItemsContainer.textContent = '';
-            console.log(orderItemsContainer);
             // loopthrough the items
             orderedItems.forEach(async (orderItem) => {
-                console.log(orderItem);
                 const div = document.createElement('div');
                 div.classList.add('form-row', 'mb-2');
                 await fetch('../../data/orders/all_items.php')
@@ -168,14 +166,12 @@ const findOrder = (id) => {
 
 // edit order
 const editOrder = (id) => {
-    console.log(id);
     findOrder(id);
     // operation for edit orders
     $('#edit-order')
         .off('submit', '**')
         .on('submit', 'form', function (event) {
             event.preventDefault();
-            console.log('submit');
             const customerName = document.querySelector(
                 '#edit-order #customer-name'
             );
@@ -200,7 +196,6 @@ const editOrder = (id) => {
                 customerName: customerName.value,
                 orderedItems: orderedItems
             };
-            console.log(data);
             // the fetch method to make the ajax call and insert data into database
             fetch('../../data/orders/update_order.php', {
                 method: 'PUT',
@@ -256,7 +251,6 @@ const claimOrder = () => {
                 )
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data);
                         if (data.status === 'success') {
                             getAllOrders();
                             Swal.fire({
@@ -278,7 +272,6 @@ const claimOrder = () => {
 // order details ----------------------------------------------------------
 const orderDetails = (id) => {
     const orderDetails = document.querySelector('#order-details .modal-body');
-    console.log(orderDetails);
     fetch(`../../data/orders/order_details.php?id=${id}`, {
         method: 'GET'
     })
@@ -320,7 +313,6 @@ const deleteOrder = () => {
                 )
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data);
                         if (data.status === 'success') {
                             getAllOrders();
                             Swal.fire({
