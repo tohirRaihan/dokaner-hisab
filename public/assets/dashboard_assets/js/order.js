@@ -232,12 +232,12 @@ const claimOrder = () => {
     }
     // confirmation of order claiming
     Swal.fire({
-        title: 'Did you claim the orders?',
+        title: 'Did you claimed the orders?',
         icon: 'question',
         showCancelButton: true,
         cancelButtonColor: '#dc3545',
         confirmButtonColor: '#28a745',
-        confirmButtonText: 'Yes, claimed it!',
+        confirmButtonText: 'Yes, claimed it',
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
@@ -255,7 +255,7 @@ const claimOrder = () => {
                             getAllOrders();
                             Swal.fire({
                                 title: 'Claimed!',
-                                text: 'Your orders has been Claimed.',
+                                text: 'Your orders has been Claimed and paid successfully!',
                                 icon: 'success',
                                 confirmButtonColor: '#28a745'
                             });

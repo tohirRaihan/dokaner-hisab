@@ -16,16 +16,10 @@ $scripts    = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    <button type="button" class="btn bg-gradient-success btn-sm" data-toggle="modal" data-target="#new-order">
-        New Order <i class="fa fa-plus-circle ml-1" aria-hidden="true"></i>
-    </button>
-    <button onclick="claimOrder()" type="button" class="btn bg-gradient-purple btn-sm">
-        Claim <i class="fa fa-check-circle ml-1" aria-hidden="true"></i>
-    </button>
-    <button onclick="deleteOrder()" type="button" class="btn bg-gradient-danger btn-sm">
-        Delete <i class="fa fa-trash ml-1" aria-hidden="true"></i>
-    </button>
-    <div id="all-orders" class="mt-3">
+    Daily Sales:
+<input onchange="viewDailySales()" id="dailySale" type="date" class="btn btn-default btn-sm" value="<?= date('Y-m-d'); ?>">
+
+    <div id="daily-sales" class="mt-3">
         <!-- ____________________________
             #= All sales goes here
         ____________________________ -->

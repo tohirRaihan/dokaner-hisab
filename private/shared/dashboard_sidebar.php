@@ -36,6 +36,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= url_for('dashboard/sales/index.php') ?>" class="nav-link">
+                        <i class="nav-icon fa fa-gift"></i>
+                        <p>
+                            Sales
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="../gallery.html" class="nav-link">

@@ -6,10 +6,19 @@ use Database\Database;
 
 class Sale extends Database
 {
-    public static function all($payment_claimed = 0)
+    public static function dailySales($date)
     {
-        $sql = "SELECT * FROM `sales` WHERE `payment_claimed`=? ORDER BY `id` DESC";
-        return parent::getRows($sql, [$payment_claimed]);
+        $sql = "SELECT
+                sales.order_id as order_id,
+                orders.customer_name as customer_name,
+                orders.ordered_amount as ordered_amount,
+                orders.created_at as ordered_at,
+                sales.created_at as paid_at
+                FROM `sales`
+                INNER JOIN `orders`
+                ON sales.order_id = orders.id
+                WHERE DATE(sales.created_at) = ?";
+        return parent::getRows($sql, [$date]);
     }
 
     public static function create($order_id)

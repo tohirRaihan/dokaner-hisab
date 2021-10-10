@@ -2,10 +2,14 @@
 
 require_once '../../../private/initialize.php';
 
-use App\Order;
+use App\Sale;
 
-$orders = Order::all();
+$date = $_GET['date'];
+$sales = Sale::dailySales($date);
 $count  = 1;
+
+print_r($sales);
+die;
 
 ?>
 <table id="orders-table" class="table table-bordered table-striped">
