@@ -27,17 +27,21 @@ $ordered_items        = json_decode($order['ordered_items'], true);
         <tbody>
             <?php foreach ($ordered_items as $ordered_item) :
                 $item = Item::find($ordered_item['itemId']);
+                $item_name = $item['name'] ?? 'unknown';
+                $item_price = (int)($item['price'] ?? 'unknown');
+                $item_unit_name = $item['unit_name'] ?? 'unknown';
+                $item_quantity = (int)$ordered_item['itemQuantity'];
             ?>
                 <tr>
-                    <td><?= $item['name'] ?></td>
+                    <td><?= $item_name ?></td>
                     <td class="text-center">
-                        <span class="h5">&#2547;</span> <?= $item['price'] ?> <span class="text-muted"> / <?= $item['unit_name'] ?></span>
+                        <span class="h5">&#2547;</span> <?= $item_price ?> <span class="text-muted"> / <?= $item_unit_name ?></span>
                     </td>
                     <td class="text-center">
                         <?= $ordered_item['itemQuantity'] ?>
                     </td>
                     <td class="text-center">
-                        <span class="h5">&#2547;</span> <?= $item['price'] * $ordered_item['itemQuantity'] ?>
+                        <span class="h5">&#2547;</span> <?= $item_price * $item_quantity ?>
                     </td>
                 </tr>
             <?php endforeach ?>
