@@ -1,6 +1,5 @@
-const viewDailySales = async() => {
+const viewDailySales = async () => {
     const date = document.getElementById('dailySale').value;
-    console.log(date);
     await fetch(`../../data/sales/daily_sales.php?date=${date}`, {
         method: 'GET'
     })
@@ -34,3 +33,15 @@ const saleDetails = (id) => {
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
 };
+
+const printDailySales = () => {
+    console.log('daily sales printed');
+    const date = document.getElementById('dailySale').value;
+    window.open('../../data/print/daily_sales.php?date='+date,'name','width=600,height=400');
+};
+
+// $('#print-button').click(function(event) {
+// 	/* Act on the event */
+// 	var date = $('#dailySale').val();
+// 	window.open('data/print.php?date='+date,'name','width=600,height=400');
+// });

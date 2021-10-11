@@ -21,7 +21,7 @@ $scripts    = [
             Pick a date:
             <input onchange="viewDailySales()" id="dailySale" type="date" class="btn btn-default btn-sm" value="<?= date('Y-m-d'); ?>">
         </div>
-        <button class="btn btn-sm bg-gradient-success">
+        <button onclick="printDailySales()" class="btn btn-sm bg-gradient-success">
             PRINT <i class="fa fa-print nav-icon" aria-hidden="true"></i>
         </button>
     </div>
