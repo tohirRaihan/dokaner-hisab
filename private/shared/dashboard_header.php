@@ -19,6 +19,9 @@ use Database\Session;
     <link rel="stylesheet" href="<?= url_for('assets/dashboard_assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>" />
     <!-- Select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= url_for('assets/dashboard_assets/css/adminlte.min.css') ?>" />
     <!-- Custom Style sheet -->
@@ -51,11 +54,11 @@ use Database\Session;
                         <span><?= Session::getSessionData('user_name') ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                        <a href="<?= url_for('dashboard/logout.php') ?>" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
                             <span class="text-muted">Change password</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= url_for('dashboard/logout.php') ?>" class="dropdown-item">
                             <span class="text-muted">Logout</span>
                         </a>
                         <div class="dropdown-divider"></div>

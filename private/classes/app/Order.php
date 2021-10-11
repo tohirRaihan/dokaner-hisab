@@ -41,6 +41,15 @@ class Order extends Database
         $sql = "UPDATE `orders` SET `payment_claimed`=1 WHERE `id`=? LIMIT 1";
         return parent::deleteRow($sql, [$id]);
     }
+
+    public static function lastDayOrders()
+    {
+        $sql = "SELECT
+        COUNT(`id`) AS last_day_orders,
+        SUM(`ordered_amount`) AS last_day_total
+        FROM `orders` WHERE `created_at` BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()";
+        return parent::getRow($sql, []);
+    }
 }
 // Create a new item to instantiate a Connection
 $order = new Order;
