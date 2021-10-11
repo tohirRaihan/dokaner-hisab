@@ -87,6 +87,8 @@
     <script src="<?= url_for('assets/dashboard_assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?= url_for('assets/dashboard_assets/js/adminlte.min.js') ?>"></script>
+    <!-- custom script -->
+    <script src="<?= url_for('assets/dashboard_assets/js/login.js') ?>"></script>
 </body>
 
 </html>
