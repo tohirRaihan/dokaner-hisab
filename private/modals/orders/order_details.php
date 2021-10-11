@@ -20,7 +20,7 @@
                     Close
                 </button>
                 <button id="print-order-details" class="btn btn-sm bg-gradient-success">
-                    Print <i class="fa fa-print" aria-hidden="true"></i>
+                    Print <i class="ion-android-print h6" aria-hidden="true"></i>
                 </button>
             </div>
         </div>

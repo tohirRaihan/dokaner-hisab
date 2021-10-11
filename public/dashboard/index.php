@@ -42,7 +42,7 @@ $last_month_orders = Order::lastMonthOrders();
                     <p>Last day Amount</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-cash"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -63,12 +63,12 @@ $last_month_orders = Order::lastMonthOrders();
         <div class="col-md-3">
             <div class="small-box bg-purple">
                 <div class="inner">
-                    <h3><?= $last_month_orders['last_month_total'] ?></h3>
+                    <h3>&#2547; <?= $last_month_orders['last_month_total'] ?></h3>
 
-                    <p>Last month Sales</p>
+                    <p>Last month Amount</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-cash"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>

@@ -65,8 +65,3 @@ function load_scripts(string $location, array $scripts)
         echo '<script src="' . $location . $script . '.js"></script>' . "\r\n";
     }
 }
-
-function load_custom_script($script)
-{
-    echo $script;
-}

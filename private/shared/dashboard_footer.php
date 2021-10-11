@@ -4,11 +4,8 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0-rc
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+<footer class="main-footer text-center">
+    <strong>Copyright &copy; <?= date('Y') ?> <a href="#">Dokaner Hisab</a></strong> All rights reserved. Developed by <strong><a target="_blank" href="https://github.com/tohirRaihan">Tohir Raihan</a></strong>
 </footer>
 </div>
 <!-- ./wrapper -->
@@ -30,9 +27,6 @@
 <?php
 if (isset($scripts)) {
     load_scripts(url_for('assets/dashboard_assets/js/'), $scripts);
-}
-if (isset($custom_script)) {
-    load_custom_script($custom_script);
 }
 ?>
 
