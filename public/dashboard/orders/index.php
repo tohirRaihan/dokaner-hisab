@@ -1,5 +1,9 @@
 <?php
 require_once '../../../private/initialize.php';
+
+use App\User;
+
+User::auth();
 $page_title = 'Orders';
 $scripts    = [
     'order',

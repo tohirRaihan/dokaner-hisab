@@ -3,7 +3,9 @@
 require_once '../../../private/initialize.php';
 
 use App\Order;
+use App\User;
 
+User::auth();
 $orders = Order::all();
 $count  = 1;
 

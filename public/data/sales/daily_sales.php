@@ -2,7 +2,9 @@
 require_once '../../../private/initialize.php';
 
 use App\Sale;
+use App\User;
 
+User::auth();
 $date = $_GET['date'];
 $sales = Sale::dailySales($date);
 $daily_sales_amount = 0;

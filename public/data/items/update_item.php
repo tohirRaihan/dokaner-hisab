@@ -1,9 +1,10 @@
 <?php
-
-use App\Item;
-
 require_once '../../../private/initialize.php';
 
+use App\Item;
+use App\User;
+
+User::auth();
 $response = file_get_contents('php://input');
 $data     = json_decode($response, true);
 // reciving all data

@@ -1,8 +1,10 @@
 <?php
+require_once '../../private/initialize.php';
 
 use App\Order;
+use App\User;
 
-require_once '../../private/initialize.php';
+User::auth();
 $page_title = 'Deshboard';
 
 $last_day_orders   = Order::lastDayOrders();

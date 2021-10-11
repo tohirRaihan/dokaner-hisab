@@ -3,7 +3,9 @@ require_once '../../../private/initialize.php';
 
 use App\Item;
 use App\Order;
+use App\User;
 
+User::auth();
 $id    = $_GET['id'];
 $order = Order::find($id);
 

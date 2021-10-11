@@ -1,4 +1,12 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php
+require_once('../../private/initialize.php');
+
+use Database\Session;
+
+if (Session::getSessionData('user_logged')) {
+    redirect_to(url_for('dashboard/index.php'));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -3,7 +3,9 @@
 require_once '../../../private/initialize.php';
 
 use App\Item;
+use App\User;
 
+User::auth();
 $items = Item::all();
 $count = 1;
 
