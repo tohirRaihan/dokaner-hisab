@@ -1,49 +1,52 @@
 <?php
-
 require_once '../../../private/initialize.php';
 
 use App\Sale;
 
 $date = $_GET['date'];
 $sales = Sale::dailySales($date);
-$count  = 1;
-
-print_r($sales);
-die;
-
+$daily_sales_amount = 0;
 ?>
-<table id="orders-table" class="table table-bordered table-striped">
+<table id="daily-sales-table" class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th></th>
-            <th>#</th>
             <th>Customer Name</th>
-            <th class="text-center">Order Date</th>
+            <th class="text-center">Order Time</th>
+            <th class="text-center">Payment Time</th>
             <th class="text-center">Amount</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($orders as $order) : ?>
+        <?php foreach ($sales as $sale) :
+            // extracting information
+            $order_id = $sale['order_id'];
+            $customer_name = $sale['customer_name'];
+            $order_time = $sale['ordered_at'];
+            $payment_time = $sale['paid_at'];
+            $ordered_amount = $sale['ordered_amount'];
+            $daily_sales_amount += $ordered_amount;
+        ?>
             <tr>
-                <td class="text-center"><input type="checkbox" value="<?= $order['id'] ?>"></td>
-                <td><?= $count++ ?></td>
-                <td><?= $order['customer_name'] ?></td>
-                <td class="text-center"><?= $order['created_at'] ?></td>
-                <td class="text-center"><span class="h5">&#2547;</span> <?= $order['ordered_amount'] ?></td>
+                <td><?= $customer_name ?></td>
+                <td class="text-center"><?= $order_time ?></td>
+                <td class="text-center"><?= $payment_time ?></td>
+                <td class="text-center"><span class="h5">&#2547;</span> <?= $ordered_amount ?></td>
                 <td class="text-center">
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-xs bg-gradient-primary" data-toggle="modal" data-target="#order-details" onclick="orderDetails(<?= $order['id'] ?>)">
-                            Details
-                        </button>
-                        <button class="btn btn-xs bg-gradient-warning" data-toggle="modal" data-target="#edit-order" onclick="editOrder(<?= $order['id'] ?>)">
-
-                            Edit
-                        </button>
-
-                    </div>
+                    <button class="btn btn-xs bg-gradient-primary" data-toggle="modal" data-target="#order-details" onclick="saleDetails(<?= $order_id ?>)">
+                        Details
+                    </button>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3" class="text-right">TOTAL</th>
+            <th class="text-center">
+                <span class="h5">&#2547;</span> <?= $daily_sales_amount ?>
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
 </table>

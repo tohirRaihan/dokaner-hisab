@@ -12,6 +12,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                <li class="nav-header bg-gray">MAIN NAVIGATION</li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/index.php') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -22,7 +23,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/items/index.php') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-server"></i>
+                        <i class="nav-icon fa fa-bars"></i>
                         <p>
                             Items
                         </p>
@@ -38,19 +39,23 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_for('dashboard/sales/index.php') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-gift"></i>
+                        <i class="nav-icon fa fa-chart-line"></i>
                         <p>
                             Sales
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header bg-gray">SETTINGS</li>
                 <li class="nav-item">
-                    <a href="../gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Gallery
-                        </p>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p class="text">Change Password</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Logout</p>
                     </a>
                 </li>
             </ul>

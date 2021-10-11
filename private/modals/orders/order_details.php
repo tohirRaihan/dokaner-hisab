@@ -20,7 +20,7 @@
                     Close
                 </button>
                 <button type="submit" class="btn btn-sm bg-gradient-success">
-                    Print <i class="fa fa-print nav-icon" aria-hidden="true"></i>
+                    Print <i class="fa fa-print" aria-hidden="true"></i>
                 </button>
             </div>
         </div>

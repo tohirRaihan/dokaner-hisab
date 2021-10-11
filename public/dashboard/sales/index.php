@@ -1,6 +1,6 @@
 <?php
 require_once '../../../private/initialize.php';
-$page_title = 'Sales';
+$page_title = 'Daily sales';
 $scripts    = [
     'sale',
 ];
@@ -16,8 +16,15 @@ $scripts    = [
 
 <!-- Main Content goes here -->
 <div class="card-body">
-    Daily Sales:
-<input onchange="viewDailySales()" id="dailySale" type="date" class="btn btn-default btn-sm" value="<?= date('Y-m-d'); ?>">
+    <div class="sale-operation d-flex justify-content-between">
+        <div class="operation-date">
+            Pick a date:
+            <input onchange="viewDailySales()" id="dailySale" type="date" class="btn btn-default btn-sm" value="<?= date('Y-m-d'); ?>">
+        </div>
+        <button class="btn btn-sm bg-gradient-success">
+            PRINT <i class="fa fa-print nav-icon" aria-hidden="true"></i>
+        </button>
+    </div>
 
     <div id="daily-sales" class="mt-3">
         <!-- ____________________________
