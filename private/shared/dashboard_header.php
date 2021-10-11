@@ -1,3 +1,8 @@
+<?php
+
+use Database\Session;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,10 +48,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link d-flex align-items-center" data-toggle="dropdown" href="#" aria-expanded="false">
                         <img class="img-circle mr-2" width="35" src="<?= url_for('assets/dashboard_assets/images/avatar.png') ?>" alt="">
-                        <span>Tohir Raihan</span>
+                        <span><?= Session::getSessionData('user_name') ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= url_for('dashboard/logout.php') ?>" class="dropdown-item">
                             <span class="text-muted">Change password</span>
                         </a>
                         <div class="dropdown-divider"></div>

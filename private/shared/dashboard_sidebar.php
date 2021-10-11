@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= url_for('dashboard/logout.php') ?>" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Logout</p>
                     </a>

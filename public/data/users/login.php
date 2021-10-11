@@ -19,7 +19,6 @@ if ($user_login) {
     $return['url'] = "index.php";
     Session::setSessionData('user_logged', $user_login['id']);
     Session::setSessionData('user_name', $user_login['name']);
-    Session::setSessionData('success_message', 'You have logged in successfully!');
 } else {
     $return['status'] = 'failure';
 }
