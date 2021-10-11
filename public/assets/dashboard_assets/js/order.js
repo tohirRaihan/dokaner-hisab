@@ -280,6 +280,17 @@ const orderDetails = (id) => {
             orderDetails.innerHTML = data;
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
+
+    // print ordered details
+    $('#order-details')
+        .off('click')
+        .on('click', '#print-order-details', () => {
+            window.open(
+                `../../data/print/order_details.php?id=${id}`,
+                'name',
+                'width=600,height=400'
+            );
+        });
 };
 
 // delete order with checkbox ---------------------------------------------

@@ -10,10 +10,11 @@ $order = Order::find($id);
 // extracting all data
 $customer_name        = $order['customer_name'];
 $ordered_total_amount = $order['ordered_amount'];
+$order_received       = $order['created_at'];
 $ordered_items        = json_decode($order['ordered_items'], true);
 ?>
 <div class="order-detail-info">
-    <i class="fa fa-chevron-right text-fuchsia" aria-hidden="true"></i> <span class="lead text-muted"><?= $customer_name ?></span>
+    <i class="fa fa-chevron-right text-fuchsia" aria-hidden="true"></i> <span class="lead text-muted"><?= "{$customer_name} ({$order_received})" ?></span>
     <table class="table table-bordered">
         <thead>
             <tr>

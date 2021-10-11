@@ -16,10 +16,10 @@
             <!-- /.modal-body -->
 
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-sm bg-gradient-secondary" data-dismiss="modal">
+                <button class="btn btn-sm bg-gradient-secondary" data-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" class="btn btn-sm bg-gradient-success">
+                <button id="print-order-details" class="btn btn-sm bg-gradient-success">
                     Print <i class="fa fa-print" aria-hidden="true"></i>
                 </button>
             </div>

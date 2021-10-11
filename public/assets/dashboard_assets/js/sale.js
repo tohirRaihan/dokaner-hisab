@@ -1,3 +1,4 @@
+// load daily sales in data table -----------------------------------------
 const viewDailySales = async () => {
     const date = document.getElementById('dailySale').value;
     await fetch(`../../data/sales/daily_sales.php?date=${date}`, {
@@ -22,6 +23,7 @@ const viewDailySales = async () => {
 };
 viewDailySales();
 
+// sale details -----------------------------------------------------------
 const saleDetails = (id) => {
     const orderDetails = document.querySelector('#order-details .modal-body');
     fetch(`../../data/orders/order_details.php?id=${id}`, {
@@ -32,16 +34,25 @@ const saleDetails = (id) => {
             orderDetails.innerHTML = data;
         })
         .catch((error) => Swal.fire('Something went wrong', '', 'warning'));
+
+    // print ordered details
+    $('#order-details')
+        .off('click')
+        .on('click', '#print-order-details', () => {
+            window.open(
+                `../../data/print/order_details.php?id=${id}`,
+                'name',
+                'width=600,height=400'
+            );
+        });
 };
 
+// print daily sales report -----------------------------------------------
 const printDailySales = () => {
-    console.log('daily sales printed');
     const date = document.getElementById('dailySale').value;
-    window.open('../../data/print/daily_sales.php?date='+date,'name','width=600,height=400');
+    window.open(
+        '../../data/print/daily_sales.php?date=' + date,
+        'name',
+        'width=600,height=400'
+    );
 };
-
-// $('#print-button').click(function(event) {
-// 	/* Act on the event */
-// 	var date = $('#dailySale').val();
-// 	window.open('data/print.php?date='+date,'name','width=600,height=400');
-// });

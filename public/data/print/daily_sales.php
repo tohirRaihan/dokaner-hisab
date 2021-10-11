@@ -33,8 +33,8 @@ $daily_sales_amount = 0;
             <thead>
                 <tr>
                     <th>Customer Name</th>
-                    <th class="text-center">Order Time</th>
-                    <th class="text-center">Payment Time</th>
+                    <th class="text-center">Order Received</th>
+                    <th class="text-center">Payment Received</th>
                     <th class="text-center">Amount</th>
                 </tr>
             </thead>
