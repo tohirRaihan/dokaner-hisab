@@ -1,14 +1,20 @@
 <?php
-require_once('../../private/initialize.php');
+
+use App\Order;
+
+require_once '../../private/initialize.php';
 $page_title = 'Deshboard';
+
+$last_day_orders   = Order::lastDayOrders();
+$last_month_orders = Order::lastMonthOrders();
 ?>
 
 <!-- #####=START Header=##### -->
-<?php require_once(SHARED_PATH . '/dashboard_header.php'); ?>
+<?php require_once SHARED_PATH . '/dashboard_header.php'; ?>
 <!-- #####=END Header=##### -->
 
 <!-- #####=START Sidebar=##### -->
-<?php require_once(SHARED_PATH . '/dashboard_sidebar.php'); ?>
+<?php require_once SHARED_PATH . '/dashboard_sidebar.php'; ?>
 <!-- #####=END Sidebar=##### -->
 
 <!-- Main Content goes here -->
@@ -17,7 +23,7 @@ $page_title = 'Deshboard';
         <div class="col-md-3">
             <div class="small-box bg-lightblue">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3><?= $last_day_orders['last_day_orders'] ?></h3>
 
                     <p>Last day Orders</p>
                 </div>
@@ -30,9 +36,8 @@ $page_title = 'Deshboard';
         <div class="col-md-3">
             <div class="small-box bg-pink">
                 <div class="inner">
-                    <h3>150</h3>
-
-                    <p>Last day Sales</p>
+                    <h3>&#2547; <?= $last_day_orders['last_day_total'] ?></h3>
+                    <p>Last day Amount</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -43,7 +48,7 @@ $page_title = 'Deshboard';
         <div class="col-md-3">
             <div class="small-box bg-olive">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3><?= $last_month_orders['last_month_orders'] ?></h3>
 
                     <p>Last month Orders</p>
                 </div>
@@ -56,7 +61,7 @@ $page_title = 'Deshboard';
         <div class="col-md-3">
             <div class="small-box bg-purple">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3><?= $last_month_orders['last_month_total'] ?></h3>
 
                     <p>Last month Sales</p>
                 </div>
@@ -71,5 +76,5 @@ $page_title = 'Deshboard';
 <!-- /.card-body -->
 
 <!-- #####=START FOOTER=##### -->
-<?php require_once(SHARED_PATH . '/dashboard_footer.php'); ?>
+<?php require_once SHARED_PATH . '/dashboard_footer.php'; ?>
 <!-- #####=END FOOTER=##### -->

@@ -47,7 +47,18 @@ class Order extends Database
         $sql = "SELECT
         COUNT(`id`) AS last_day_orders,
         SUM(`ordered_amount`) AS last_day_total
-        FROM `orders` WHERE `created_at` BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()";
+        FROM `orders`
+        WHERE `created_at` BETWEEN CURDATE() - INTERVAL 1 DAY AND CURDATE()";
+        return parent::getRow($sql, []);
+    }
+    public static function lastMonthOrders()
+    {
+        $sql = "SELECT
+        COUNT(`id`) AS last_month_orders,
+        SUM(`ordered_amount`) AS last_month_total
+        FROM `orders`
+        WHERE YEAR(`created_at`) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH)
+        AND MONTH(`created_at`) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)";
         return parent::getRow($sql, []);
     }
 }
