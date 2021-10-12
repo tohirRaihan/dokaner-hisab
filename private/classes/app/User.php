@@ -33,6 +33,11 @@ class User extends Database
         return parent::getRow($sql, [$email]);
     }
 
+    public static function changePassword($password, $id)
+    {
+        $sql = "UPDATE `users` SET `password` = ? WHERE `id` = ? LIMIT 1";
+        return parent::updateRow($sql, [$password, $id]);
+    }
 
     public static function auth()
     {

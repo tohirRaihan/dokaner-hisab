@@ -47,7 +47,7 @@
                 </li>
                 <li class="nav-header bg-gray">SETTINGS</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#change-password">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">Change Password</p>
                     </a>

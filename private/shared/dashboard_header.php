@@ -52,7 +52,7 @@ use Database\Session;
                         <img class="img-circle mr-2" width="35" src="<?= url_for('assets/dashboard_assets/images/avatar.png') ?>" alt="">
                         <span><?= Session::getSessionData('user_name') ?></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;" data-toggle="modal" data-target="#change-password">
                         <a href="#" class="dropdown-item">
                             <span class="text-muted">Change password</span>
                         </a>

@@ -4,6 +4,11 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- ########## START: MODALS ########## -->
+<?php include_once PRIVATE_PATH . '/modals/users/change_password.php' ?>
+<!-- ########## END: MODALS ########## -->
+
 <footer class="main-footer text-center">
     <strong>Copyright &copy; <?= date('Y') ?> <a href="#">Dokaner Hisab</a></strong> All rights reserved. Developed by <strong><a target="_blank" href="https://github.com/tohirRaihan">Tohir Raihan</a></strong>
 </footer>
@@ -23,6 +28,8 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= url_for('assets/dashboard_assets/js/adminlte.min.js') ?>"></script>
+<!-- Custom Script -->
+<script src="<?= url_for('assets/dashboard_assets/js/custom.js') ?>"></script>
 <!-- File specific Scripts -->
 <?php
 if (isset($scripts)) {
