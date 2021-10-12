@@ -9,3 +9,7 @@
 - Open project root in terminal
 - Give command __`composer install`__ and you are good to go
 - To run the project in local environment, goto `localhost/dokanerhisab/public/`
+
+### Login information
+- Email: admin@dokanerhisab.com
+- Password: admin
