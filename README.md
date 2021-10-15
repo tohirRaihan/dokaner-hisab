@@ -1,5 +1,5 @@
 # Dokaner Hisab
-> _Dokaner Hisab is an app for sale management and pay slip_ - __[watch demo](https://google.com/)__
+> _Dokaner Hisab is an app for sale management and pay slip_ - __[watch demo](https://youtu.be/MMCuaCwqAlk)__
 ---
 
 ### Installing the App
