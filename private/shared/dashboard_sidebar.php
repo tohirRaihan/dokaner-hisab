@@ -14,7 +14,9 @@
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-header bg-gray">MAIN NAVIGATION</li>
                 <li class="nav-item">
-                    <a href="<?= url_for('dashboard/index.php') ?>" class="nav-link">
+                    <a
+                    href="<?= url_for('dashboard/index.php') ?>"
+                    class="nav-link <?= $page_title === 'Dashboard' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -22,7 +24,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= url_for('dashboard/items/index.php') ?>" class="nav-link">
+                    <a
+                    href="<?= url_for('dashboard/items/index.php') ?>"
+                    class="nav-link <?= $page_title === 'Items' ? 'active' : '' ?>">
                         <i class="nav-icon fa fa-bars"></i>
                         <p>
                             Items
@@ -30,7 +34,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= url_for('dashboard/orders/index.php') ?>" class="nav-link">
+                    <a
+                    href="<?= url_for('dashboard/orders/index.php') ?>"
+                    class="nav-link <?= $page_title === 'Orders' ? 'active' : '' ?>">
                         <i class="nav-icon fa fa-gift"></i>
                         <p>
                             Orders
@@ -38,7 +44,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= url_for('dashboard/sales/index.php') ?>" class="nav-link">
+                    <a
+                    href="<?= url_for('dashboard/sales/index.php') ?>"
+                    class="nav-link <?= $page_title === 'Daily sales' ? 'active' : '' ?>">
                         <i class="nav-icon fa fa-chart-line"></i>
                         <p>
                             Sales

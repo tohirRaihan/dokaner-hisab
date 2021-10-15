@@ -5,7 +5,7 @@ use App\Order;
 use App\User;
 
 User::auth();
-$page_title = 'Deshboard';
+$page_title = 'Dashboard';
 
 $last_day_orders   = Order::lastDayOrders();
 $last_month_orders = Order::lastMonthOrders();
