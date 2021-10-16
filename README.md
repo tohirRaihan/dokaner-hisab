@@ -4,7 +4,7 @@
 
 ### Installing the App
 - Download or clone this repository
-- Create a database called `dokanerhisab` and import from `dokanerhisab.sql`
+- Create a database called `dokaner_hisab` and import from `dokaner_hisab.sql`
 - Set your database credentials if necessary from `private/classes/database/Connection.php`
 - Open project root in terminal
 - Give command __`composer install`__ and you are good to go
